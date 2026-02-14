@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poster Upload</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .upload-box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+
+    .post {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .post img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Create a Poster</h1>
+
+  <div class="upload-box">
+    <input type="file" id="imageInput">
+    <input type="text" id="captionInput" placeholder="Write a caption">
+    <button id="uploadBtn">Upload</button>
+  </div>
+
+  <h2>Recent Posters</h2>
+  <div id="posts"></div>
+
+  <script>
+    const db = supabase.createClient(
+      "Supabase_Project_URL",
+      "ANON_PUBLIC_KEY"
+    );
+
+    document.getElementById("uploadBtn").onclick = async () => {
+      const file = document.getElementById("imageInput").files[0];
+      const caption = document.getElementById("captionInput").value;
+
+      if (!file || !caption) {
+        alert("Please select an image and write a caption");
+        return;
+      }
+
+      const fileName = Date.now() + "-" + file.name;
+
+      // Upload the file
+const { error: uploadError } = await db.storage
+  .from("posters")
+  .upload(fileName, file);
+
+if (uploadError) {
+  console.log("Upload error:", uploadError);
+  alert("Upload failed");
+  return;
+}
+
+// .getPublicUrl() returns { data: { publicUrl: '...' } }
+const { data } = db.storage
+  .from("posters")
+  .getPublicUrl(fileName);
+
+const imageUrl = data.publicUrl; 
+console.log("Image URL:", imageUrl); // This should now show a real link!
+
+// Insert into database
+const { error: insertError } = await db
+  .from("posts")
+  .insert([{
+    image: imageUrl, 
+    caption: caption, 
+    created: new Date().toISOString()
+  }]);
+        
+
+      if (insertError) {
+        console.log("Insert error:", insertError);
+        alert("Post failed");
+        return;
+      }
+
+      loadPosts();
+    };
+
+    async function loadPosts() {
+      const { data, error } = await db
+        .from("posts")
+        .select("*")
+        .order("created", { ascending: false });
+
+      if (error) {
+        console.log("Load error:", error);
+        return;
+      }
+
+      const postsDiv = document.getElementById("posts");
+      postsDiv.innerHTML = "";
+
+      data.forEach(post => {
+        postsDiv.innerHTML += `
+          <div class="post">
+            <img src="${post.image}" alt="Poster">
+            <p>${post.caption}</p>
+          </div>
+        `;
+      });
+    }
+
+    loadPosts();
+  </script>
+<!-- Made by Ori6069, credit is not required, but appriciated -->
+</body>
+</html>
