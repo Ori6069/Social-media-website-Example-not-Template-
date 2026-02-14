@@ -21,5 +21,5 @@ Public read
 ![Alt](https://github.com/Ori6069/Social-media-website-Example-not-Template-/blob/1fbbf46d3568f4fefc5f54b0de4751f55a80cfb5/Images/Screenshot%202026-02-14%20182604.png)
 9. Now we need a place to store all the posts, so on the sidebar go to storage, then create a new bucket. Name excatly as shown.
 ![Alt](https://github.com/Ori6069/Social-media-website-Example-not-Template-/blob/1fbbf46d3568f4fefc5f54b0de4751f55a80cfb5/Images/Screenshot%202026-02-14%20182440.png)
-10. Make it a public bucket but pressing on the toggle switch. (You can set a file limit on the posts people upload if you want to by toggling the file limit switch and setting a limit in Mb)
+10. Make it a public bucket by pressing on the toggle switch. (You can set a file limit on the posts people upload if you want to by toggling the file limit switch and setting a limit in Mb)
 ## Thats it! Congrats on your social media website!! :)
