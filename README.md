@@ -14,7 +14,7 @@ An easy simple HTML and JS code for a website to publish posts and images. (Just
 ![Alt](https://github.com/Ori6069/Social-media-website-Example-not-Template-/blob/1fbbf46d3568f4fefc5f54b0de4751f55a80cfb5/Images/Screenshot%202026-02-14%20182521.png)
 7. As you can see here, I already made 2 policies so make them. Press create policy. (Name them exactly the same)
 ![Alt](https://github.com/Ori6069/Social-media-website-Example-not-Template-/blob/1fbbf46d3568f4fefc5f54b0de4751f55a80cfb5/Images/Screenshot%202026-02-14%20182423.png)
-8. Here are the settings for the first and second one policies.
+8. Here are the settings for the first and second policies.
 Public insert
 ![Alt](https://github.com/Ori6069/Social-media-website-Example-not-Template-/blob/1fbbf46d3568f4fefc5f54b0de4751f55a80cfb5/Images/Screenshot%202026-02-14%20182551.png)
 Public read
