@@ -4,5 +4,5 @@ An easy simple HTML and JS code for a website to publish posts and images. (Just
 # How to setup?
 1. Get Supabase and create an account if you don't have one.
 2. Follow images below. This is the URL you will need to put in the code here:
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg)
+!([https://assets.digitalocean.com/articles/alligator/boo.svg](https://github.com/Ori6069/Social-media-website-Example-not-Template-/blob/a6eabb2784a661295bfa84bf9c2cbf0d43944a37/Images/Screenshot%202026-02-14%20182320.png))
 4. 
